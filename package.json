@@ -1,0 +1,24 @@
+{
+  "name": "webchat",
+  "version": "1.0.0",
+  "description": "WebChat: chat realizzata con Node.JS e Socket.IO",
+  "homepage": "https://github.com/nicolaschianchiitis/EsVacanzeNatale#readme",
+  "bugs": {
+    "url": "https://github.com/nicolaschianchiitis/EsVacanzeNatale/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolaschianchiitis/EsVacanzeNatale.git"
+  },
+  "license": "ISC",
+  "author": "Nicola Schianchi",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "socket.io": "^4.8.3"
+  }
+}
