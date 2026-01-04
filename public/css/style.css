@@ -1,41 +1,76 @@
-svg.icon {
-    width: 32px;
-    height: 32px;
+/* Variabili */
+:root {
+    /* Colore di sfondo */
+    --bg: #f5f5f5;
+    /* Colore del testo (in generale) */
+    --text-color: #000000;
+    /* Colore di sfondo e del testo per campi di testo */
+    --txtfield-bg: #f9f9f9;
+    --txtfield-txt-color: #000000;
+    /* Colori per bottoni verdi */
+    --leaf-green: #2d572c;
+    --greyscale-btn: #424242;
 }
 
-svg.icon-btn {
-    width: 16px;
-    height: 16px;
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Colore di sfondo */
+        --bg: #121212;
+        /* Colore del testo (in generale) */
+        --text-color: #f5f5f5;
+        /* Colore di sfondo per campi di testo */
+        --txtfield-bg: #1b1b1b;
+        --txtfield-txt-color: #f5f5f5;
+        /* Colori per bottoni verdi */
+        --leaf-green: #2d572c;
+        --greyscale-btn: #424242;
+    }
 }
 
-div.header-div {
-    width: 33.3%;
-    float: left;
+body {
+    background-color: var(--bg);
+    color: var(--text-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
 }
 
-div.chat-div {
-    width: 70%;
-    height: 80%;
-    overflow-y: auto;
-    overflow-x: hidden;
+div.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 }
 
-/* div.my-msg-bubble {
-    max-width: 60%;
+div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin: 0 auto;
+}
+
+#loginContainer {
+    margin-top: 10rem;
+}
+
+button.greenBtn {
+    min-width: 5rem;
+    min-height: 2rem;
+    border-radius: 0.5rem;
     color: white;
-    padding: 10px 14px;
-    margin: 8px 0;
-    border-radius: 10px;
-    float: right;
-    clear: both;
+    background-color: var(--leaf-green);
 }
 
-div.others-msg-bubble {
-    max-width: 60%;
-    color: white;
-    padding: 10px 14px;
-    margin: 8px 0;
-    border-radius: 10px;
-    float: left;
-    clear: both;
-} */
+button.greenBtn:disabled {
+    background-color: var(--greyscale-btn);
+}
+
+input.nicknameField {
+    min-width: 10rem;
+    min-height: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 0 0.25rem;
+    background-color: var(--txtfield-bg);
+    color: var(--txtfield-txt-color);
+}
