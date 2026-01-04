@@ -7,9 +7,10 @@
     /* Colore di sfondo e del testo per campi di testo */
     --txtfield-bg: #f9f9f9;
     --txtfield-txt-color: #000000;
-    /* Colori per bottoni verdi */
-    --leaf-green: #2d572c;
-    --greyscale-btn: #424242;
+    /* Colori per bottoni */
+    --greyscale-btn: #424242; /* Bottone disabilitato */
+    --leaf-green: #2f6b2f;
+    --firebrick-red: #b22222;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,9 +22,10 @@
         /* Colore di sfondo per campi di testo */
         --txtfield-bg: #1b1b1b;
         --txtfield-txt-color: #f5f5f5;
-        /* Colori per bottoni verdi */
-        --leaf-green: #2d572c;
-        --greyscale-btn: #424242;
+        /* Colori per bottoni */
+        --greyscale-btn: #424242; /* Bottone disabilitato */
+        --leaf-green: #2f6b2f;
+        --firebrick-red: #b22222;
     }
 }
 
@@ -54,15 +56,36 @@ div.container {
     margin-top: 10rem;
 }
 
+h5 {
+    text-align: center;
+}
+
+button, input {
+    font-size: medium;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 button.greenBtn {
-    min-width: 5rem;
-    min-height: 2rem;
+    min-width: 6rem;
+    min-height: 2.5rem;
     border-radius: 0.5rem;
+    gap: 0.1rem;
     color: white;
     background-color: var(--leaf-green);
 }
 
-button.greenBtn:disabled {
+button.redBtn {
+    min-width: 6rem;
+    min-height: 2.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: var(--firebrick-red);
+}
+
+button:disabled {
     background-color: var(--greyscale-btn);
 }
 
@@ -73,4 +96,32 @@ input.nicknameField {
     padding: 0 0.25rem;
     background-color: var(--txtfield-bg);
     color: var(--txtfield-txt-color);
+}
+
+header.chatHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+div.headerItem {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+svg.icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+svg.btnIcon {
+    width: 1.2rem;
+    height: 1.2rem;
 }
