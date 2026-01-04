@@ -1,0 +1,41 @@
+svg.icon {
+    width: 32px;
+    height: 32px;
+}
+
+svg.icon-btn {
+    width: 16px;
+    height: 16px;
+}
+
+div.header-div {
+    width: 33.3%;
+    float: left;
+}
+
+div.chat-div {
+    width: 70%;
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* div.my-msg-bubble {
+    max-width: 60%;
+    color: white;
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 10px;
+    float: right;
+    clear: both;
+}
+
+div.others-msg-bubble {
+    max-width: 60%;
+    color: white;
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 10px;
+    float: left;
+    clear: both;
+} */

@@ -1,3 +1,10 @@
+function handleLoginBtn() {
+    const loginBtn = document.getElementById('loginBtn')
+    const nickname = document.getElementById('nickname').value
+    
+    nickname.length === 0 ? loginBtn.setAttribute('disabled', '') : loginBtn.removeAttribute('disabled')
+}
+
 function login() {
     // Salvataggio nickname nella sessionStorage (memorizzato finché la scheda è aperta)
     const nickname = document.getElementById('nickname').value

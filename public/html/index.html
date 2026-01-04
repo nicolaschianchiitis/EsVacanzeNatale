@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" data-bs-theme="dark">
+<html lang="it" id="html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +11,20 @@
 </head>
 <body>
     <center>
-        <div class="container-fluid">
+        <div class="container-fluid login-container">
             <div class="container-fluid">
                 <h1 style="margin-top: 15rem;">WebChat</h1><br>
                 <label for="nickname"><h4>Nickname</h4></label><br>
-                <input type="text" name="nickname" id="nickname" style="width: 30%;" class="form-control" placeholder="utente1"><br>
-                <button type="button" class="btn btn-success" onclick="login()">Entra</button>
+                <input type="text" name="nickname" id="nickname" style="width: 30%;" class="form-control" placeholder="utente1" oninput="handleLoginBtn()"><br>
+                <button type="button" id="loginBtn" class="btn btn-success" onclick="login()" disabled>Entra</button>
             </div><br><br>
             <footer>
                 <h6>Realizzato da Nicola Schianchi - 5^C INF - Natale 2025 (finito nel 2026)</h6>
             </footer>
         </div>
     </center>
+    <!-- Script JS tema -->
+    <script src="/public/js/theme_switcher.js"></script>
     <!-- Script JS login -->
     <script src="/public/js/login_client.js"></script>
     <!-- Bootstrap JS -->
