@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS esterno -->
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/css">
     <!-- Realizzato da Nicola Schianchi - Natale 2025 (finito nel 2026) -->
     <title>Chat | WebChat</title>
 </head>
@@ -31,14 +31,41 @@
                 </button>
             </div>
         </header>
-        <div class="container" id="chatContainer">
-            
+        <div class="chatContainer" id="chatContainer">
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+            <div class="msg me">Ciao, come va?</div>
+            <div class="msg other">Tutto bene, te?</div>
+        </div>
+        <div class="inputContainer" id="msgInputContainer">
+            <textarea name="txtAreaMsg" id="txtAreaMsg" placeholder="Messaggio" rows="3" cols="75" oninput="handleSendBtn()"></textarea>
+            <button type="button" id="btnInvia" class="greenBtn" disabled onclick="sendMsg()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-send btnIcon" viewBox="0 0 16 16">
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                </svg>&nbsp;Invia
+            </button>
         </div>
         <footer>
             <h5>Realizzato da Nicola Schianchi - 5^C INF<br>Natale 2025 (finito nel 2026)</h5>
         </footer>
     </div>
+    <!-- Script JS frontend della pagina chat -->
+    <script src="/js/chat_frontend"></script>
     <!-- Script JS lato client di Socket.IO -->
-    <script src="/public/js/client.js"></script>
+    <script src="/js/client"></script>
 </body>
 </html>

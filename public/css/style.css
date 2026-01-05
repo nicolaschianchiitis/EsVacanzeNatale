@@ -11,6 +11,8 @@
     --greyscale-btn: #424242; /* Bottone disabilitato */
     --leaf-green: #2f6b2f;
     --firebrick-red: #b22222;
+    /* Colore bordo bolle messaggi */
+    --msg-bubble-border: rgba(0, 0, 0, 0.2)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +28,8 @@
         --greyscale-btn: #424242; /* Bottone disabilitato */
         --leaf-green: #2f6b2f;
         --firebrick-red: #b22222;
+        /* Colore bordo bolle messaggi */
+        --msg-bubble-border: rgba(66, 66, 66, 0.2)
     }
 }
 
@@ -37,6 +41,7 @@ body {
 }
 
 div.wrapper {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,9 +96,19 @@ button:disabled {
 
 input.nicknameField {
     min-width: 10rem;
-    min-height: 1.5rem;
+    min-height: 2.3rem;
     border-radius: 0.5rem;
     padding: 0 0.25rem;
+    background-color: var(--txtfield-bg);
+    color: var(--txtfield-txt-color);
+}
+
+textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    border-radius: 0.5rem;
+    padding: 0 0.25rem;
+    overflow-y: auto;
     background-color: var(--txtfield-bg);
     color: var(--txtfield-txt-color);
 }
@@ -124,4 +139,59 @@ svg.icon {
 svg.btnIcon {
     width: 1.2rem;
     height: 1.2rem;
+}
+
+div.inputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+#btnInvia {
+    min-height: 4.5rem;
+}
+
+div.chatContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 40rem;
+    max-height: 70vh;
+    padding: 0.5rem;
+    max-width: 40rem;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+div.msg {
+    max-width: 75%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.8rem;
+    font-size: medium;
+    line-height: 1.3rem;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    border: 1px solid var(--msg-bubble-border);
+}
+
+div.msg.other {
+    align-self: flex-start;
+    background-color: var(--txtfield-bg);
+    color: var(--text-color);
+}
+
+div.msg.me {
+    align-self: flex-end;
+    background-color: var(--leaf-green);
+    color: white;
+}
+
+@media (min-width: 800px) {
+    .msg {
+        max-width: 60%;
+    }
 }

@@ -1,15 +1,27 @@
 function handleLoginBtn() {
     const loginBtn = document.getElementById('loginBtn')
-    const nickname = document.getElementById('nickname').value
+    const nickname = document.getElementById('nickname')
     
-    nickname.length === 0 ? loginBtn.setAttribute('disabled', '') : loginBtn.removeAttribute('disabled')
+    nickname.value.length === 0 ? loginBtn.setAttribute('disabled', '') : loginBtn.removeAttribute('disabled')
 }
 
 function login() {
-    // Salvataggio nickname nella sessionStorage (memorizzato finché la scheda è aperta)
-    const nickname = document.getElementById('nickname').value
-    sessionStorage.setItem('nickname', nickname)
+    const nickname = document.getElementById('nickname')
 
-    // Accesso alla pagina della chat nella stessa scheda
-    window.location.href = "/public/html/chat.html"
+    if (sessionStorage.getItem('nickname') === null) {
+        sessionStorage.setItem('nickname', nickname.value)
+    }
+
+    // Accesso alla pagina della chat nella stessa scheda (per sfruttare sessionStorage)
+    window.location.href = "/chat"
+}
+
+window.onload = () => {
+    const nickname = document.getElementById('nickname')
+    const savedName = sessionStorage.getItem('nickname')
+
+    if (savedName) {
+        nickname.value = savedName
+        handleLoginBtn()
+    }
 }
