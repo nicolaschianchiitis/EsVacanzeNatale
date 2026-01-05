@@ -20,7 +20,6 @@ const routes = {
     '/js/client': './public/js/client.js',
     '/js/chat_frontend': './public/js/chat_frontend.js',
     '/js/login_client': './public/js/login_client.js',
-    '/js/socket.io_client': './node_modules/socket.io/client-dist/socket.io.js'
 }
 
 let utentiConnessi = 0
@@ -51,7 +50,7 @@ const server = http.createServer(requestHandler)
 server.listen(port, hostname, console.log(`Server in ascolto... http://${hostname}:${port}/`))
 
 // Socket.IO - Server
-let io = require('socket.io').listen(server)
+let io = require('socket.io')(server)
 
 io.sockets.on('connection', function(socket) {
     console.log(`# Nuova connessione. Socket ID utente: ${socket.id}.`)
@@ -59,7 +58,7 @@ io.sockets.on('connection', function(socket) {
     utenti.push({'socketID': socket.id, 'nickname': socket.username})
     utentiConnessi++
     console.log(`# Utenti connessi: ${utentiConnessi}.`)
-    socket.broadcast.emit("utentiConnessi", utentiConnessi)
+    io.emit("utentiConnessi", utentiConnessi)
 
     socket.on('registraUtente', function(nickname) {
         if (!utenti.some(obj => obj.nickname === nickname)) {

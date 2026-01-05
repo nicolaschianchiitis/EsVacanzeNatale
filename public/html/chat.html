@@ -31,26 +31,7 @@
                 </button>
             </div>
         </header>
-        <div class="chatContainer" id="chatContainer">
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-            <div class="msg me">Ciao, come va?</div>
-            <div class="msg other">Tutto bene, te?</div>
-        </div>
+        <div class="chatContainer" id="chatContainer"></div>
         <div class="inputContainer" id="msgInputContainer">
             <textarea name="txtAreaMsg" id="txtAreaMsg" placeholder="Messaggio" rows="3" cols="75" oninput="handleSendBtn()"></textarea>
             <button type="button" id="btnInvia" class="greenBtn" disabled onclick="sendMsg()">
@@ -66,7 +47,7 @@
     <!-- Script JS frontend della pagina chat -->
     <script src="/js/chat_frontend"></script>
     <!-- Script JS libreria lato client di Socket.IO -->
-    <script src="/js/socket.io_client"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <!-- Script JS del nostro client Socket.IO -->
     <script src="/js/client"></script>
 </body>

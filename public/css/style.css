@@ -12,7 +12,9 @@
     --leaf-green: #2f6b2f;
     --firebrick-red: #b22222;
     /* Colore bordo bolle messaggi */
-    --msg-bubble-border: rgba(0, 0, 0, 0.2)
+    --msg-bubble-border: rgba(0, 0, 0, 0.2);
+    /* Colore testo messaggio di errore nello <span> */
+    --error-span-text-color: #f5f5f5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +31,9 @@
         --leaf-green: #2f6b2f;
         --firebrick-red: #b22222;
         /* Colore bordo bolle messaggi */
-        --msg-bubble-border: rgba(66, 66, 66, 0.2)
+        --msg-bubble-border: rgba(66, 66, 66, 0.2);
+        /* Colore testo messaggio di errore nello <span> */
+        --error-span-text-color: #f5f5f5;
     }
 }
 
@@ -168,30 +172,66 @@ div.chatContainer {
 }
 
 div.msg {
+    display: flex;
+    flex-direction: column;
     max-width: 75%;
     padding: 0.6rem 0.9rem;
     border-radius: 0.8rem;
     font-size: medium;
     line-height: 1.3rem;
     word-wrap: break-word;
-    white-space: pre-wrap;
+    white-space: pre-line;
     border: 1px solid var(--msg-bubble-border);
 }
 
 div.msg.other {
+    display: flex;
+    flex-direction: column;
     align-self: flex-start;
     background-color: var(--txtfield-bg);
     color: var(--text-color);
 }
 
 div.msg.me {
+    display: flex;
+    flex-direction: column;
     align-self: flex-end;
     background-color: var(--leaf-green);
     color: white;
 }
 
+span.msgTxt {
+    display: block;
+    text-align: left;
+    align-self: flex-start;
+    white-space: pre-line;
+}
+
+span.msgInfo {
+    display: block;
+    text-align: right;
+    align-self: flex-end;
+    font-size: small;
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 0.3rem;
+    white-space: pre-line;
+}
+
 @media (min-width: 800px) {
-    .msg {
+    div.msg {
         max-width: 60%;
     }
+}
+
+span.error {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: var(--firebrick-red);
+    color: var(--error-span-text-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }
