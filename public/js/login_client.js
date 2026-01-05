@@ -22,6 +22,7 @@ window.onload = () => {
 
     if (savedName) {
         nickname.value = savedName
+        nickname.setAttribute('disabled', '')
         handleLoginBtn()
     }
 }
