@@ -26,16 +26,21 @@ const routes = {
 function requestHandler(req, res) {
     console.log(`--> Richiesta in entrata: ${req.url}`)
     if (routes.hasOwnProperty(req.url)) {
-        fs.readFile(routes[req.url], 'utf-8', function(err, data) {
-            if (err) {
+        const filePath = routes[req.url]
+        const stream = fs.createReadStream(filePath, 'utf-8')
+
+        res.writeHead(200, {'Content-Type': mimeTypes[path.extname(routes[req.url])] || ''})
+        stream.on('error', function(err) {
+            console.error(`!! Errore ${err.name}: ${err.message}`)
+            if (err.name === "ENOENT") {
+                res.writeHead(404, {'Content-Type': mimeTypes['.txt']})
+                res.end("Errore 404: risorsa non trovata.")
+            } else {
                 res.writeHead(500, {'Content-Type': mimeTypes['.txt']})
                 res.end("Errore 500: errore interno del server.")
-            } else {
-                res.writeHead(200, {'Content-Type': mimeTypes[path.extname(routes[req.url])] || ''})
-                res.write(data)
             }
-            res.end()
         })
+        stream.pipe(res)
     } else {
         res.writeHead(404, {'Content-Type': mimeTypes['.txt']})
         res.end("Errore 404: risorsa non trovata.")
